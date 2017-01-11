@@ -1,43 +1,44 @@
 {
-    "name": "librank",
-    "version": "0.1.0",
-    "description": "Last.fm library ranking service",
-    "main": "server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Metatronius/Librank.git"
-    },
-    "keywords": [
-        "last.fm",
-        "scrobble",
-        "ranking",
-        "library",
-        "music"
-    ],
-    "author": "@Metatronius",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Metatronius/Librank/issues"
-    },
-    "homepage": "https://github.com/Metatronius/Librank#readme",
-    "dependencies": {
-        "body-parser": "^1.15.2",
-        "eslint": "^3.12.2",
-        "express": "^4.14.0",
-        "knex": "^0.12.6",
-        "morgan": "^1.7.0",
-        "nodemon": "^1.11.0",
-        "pg": "^6.1.2"
-    },
-    "devDependencies": {
-        "eslint": "^3.12.2",
-        "eslint-config-airbnb-base": "^11.0.0",
-        "eslint-plugin-import": "^2.2.0",
-        "chai": "^3.5.0",
-        "mocha": "^3.2.0",
-        "supertest": "^2.0.1"
-    }
+  "name": "librank",
+  "version": "0.1.0",
+  "description": "Last.fm library ranking service",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Metatronius/Librank.git"
+  },
+  "keywords": [
+    "last.fm",
+    "scrobble",
+    "ranking",
+    "library",
+    "music"
+  ],
+  "author": "@Metatronius",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Metatronius/Librank/issues"
+  },
+  "homepage": "https://github.com/Metatronius/Librank#readme",
+  "dependencies": {
+    "bcrypt-as-promised": "^1.1.0",
+    "body-parser": "^1.15.2",
+    "eslint": "^3.12.2",
+    "express": "^4.14.0",
+    "knex": "^0.12.6",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.11.0",
+    "pg": "^6.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb-base": "^11.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "supertest": "^2.0.1"
+  }
 }
