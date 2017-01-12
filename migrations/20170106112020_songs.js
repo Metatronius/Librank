@@ -5,9 +5,7 @@ exports.up = function(knex)
     table.increments();
     table.string('trackName').notNullable();
     table.string('albumArt').notNullable();
-    table.integer('elo').notNullable();
-    table.integer('kFactor').notNullable();
-    table.integer('timesPlayed').notNullable();
+    table.integer('rating').notNullable();
     table.integer('user_id').references('users.id');
   });
 };

@@ -18,7 +18,7 @@ router.post('/users', (req, res, next) =>
             hashed_password: hashed_password,
             username: req.body.username
           }, '*');
-      }
+      })
       .then(() =>
       {
         let libraryJSON = $.get(
@@ -27,14 +27,12 @@ router.post('/users', (req, res, next) =>
         let id = knex.select('id')
           .from(users)
           .where('email', req.body.email)
-        for (let i = 0, i < libraryJSON.toptracks.track.length(), i++)
+        for (let i = 0; i < libraryJSON.toptracks.track.length(); i++)
         {
           let toSongs = {
             trackName: libraryJSON.toptracks.track[i].name,
             albumArt: libraryJSON.toptracks.track[i].image[2],
-            timesPlayed: 0,
-            kFactor: 30,
-            elo: 800,
+            rating: 0,
             user_id: id
           }
           knex('songs').insert(toSongs, '*');
