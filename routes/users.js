@@ -108,7 +108,8 @@ router.post('/users', (req, res, next) =>
     {
 
       const url =
-        `http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${req.body.username}&api_key=${api_key.getKey()}&format=json`;
+        `http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${username}&limit=100&api_key=${api_key.getKey()}&format=json`;
+      console.log(url);
       request(url, function(error, response, body)
       {
         if (!error && response.statusCode == 200)
@@ -129,15 +130,13 @@ router.post('/users', (req, res, next) =>
               {
                  toSongs.push({
                   trackName: body.toptracks.track[i].name,
-                  albumArt: body.toptracks.track[i].image[1][
-                    '#text'
-                  ],
-                  rating: 0,
+                  albumArt: body.toptracks.track[i].image[1]['#text'],
+                  rating: body.toptracks.track[i].playcount,
                   user_id: id.id
                 })
 
               }
-              console.log(toSongs);
+              // console.log(toSongs);
 
               knex('songs').insert(toSongs, '*')
               .then((result)=>console.log(result));

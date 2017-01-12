@@ -13,14 +13,11 @@
         <div class="row">
             <form class="col s12">
                 <div class="row">
-                    <button id="left">
-              </button>
-                    <button id="right">
-              </button>
-                </div>
-                <div class = "row">
-                <ol id="ratings">
-                </ol>
+                    <div id="left"></div>
+                    <p>VS.</p>
+                    <div id="right"></div>
+                    <ol id="ratings">
+                    </ol>
                 </div>
             </form>
         </div>
@@ -30,16 +27,22 @@
 <script>
     $(() => {
         $.get('song/rankings', (data) => {
-          console.log(data);
-          $('#ratings').append();
+            console.log(data);
+            data = data.sort((a, b) => {
+              return b.rank - a.rank;
+            });
+            for (let i = 0; i < data.length; i++) {
+                $('#ratings').append(`<li>${data[i].trackName}</li>`);
+            }
         })
         $.get('/song/pair', (data) => {
             console.log(data);
-            $('#left').append();
+            $('#left').append(`<input type="image" src="${data[0].albumArt}"/><p>${data[0].trackName}</p>`);
+            $('#right').append(`<input type="image" src="${data[1].albumArt}"/><p>${data[1].trackName}</p>`)
         })
     })
     $('#right').click((e) => {
-
+      
     })
 </script>
 

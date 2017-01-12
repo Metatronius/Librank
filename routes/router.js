@@ -2,16 +2,17 @@
 
 var express = require('express');
 var router = express.Router();
-const knex = require('../knex')
+const knex = require('../knex');
+const logic = require('../logic/sorting');
 
-router.post('/song/library/')
+router.patch('/song')
 {
   
 }
 router.get('/song/pair', (req, res) =>
 {
   knex('songs')
-    .where('user_id', 1)
+    .where('user_id', 2)
     .then((songs) =>
     {
       let first, second;
@@ -27,7 +28,7 @@ router.get('/song/pair', (req, res) =>
 router.get('/song/rankings', (req, res) =>
 {
   knex('songs')
-    .where('user_id', 1)
+    .where('user_id', 2)
     .then((songs) =>
     {
       res.send(songs);
