@@ -4,15 +4,33 @@ var express = require('express');
 var router = express.Router();
 const knex = require('../knex')
 
-
+router.post('/song/library/')
+{
+  
+}
 router.get('/song/pair', (req, res) =>
 {
   knex('songs')
     .where('user_id', 1)
     .then((songs) =>
     {
-      // Math.floor(Math.random()*songs.length())
-      res.send([songs[0], songs[1]])
+      let first, second;
+      do {
+         first = Math.floor(Math.random() * songs.length);
+         second = Math.floor(Math.random() * songs.length);
+      }
+      while (first === second)
+
+      res.send([songs[first], songs[second]]);
     })
 });
-module.exports=router;
+router.get('/song/rankings', (req, res) =>
+{
+  knex('songs')
+    .where('user_id', 1)
+    .then((songs) =>
+    {
+      res.send(songs);
+    })
+})
+module.exports = router;

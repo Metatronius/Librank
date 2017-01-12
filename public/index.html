@@ -18,6 +18,10 @@
                     <button id="right">
               </button>
                 </div>
+                <div class = "row">
+                <ol id="ratings">
+                </ol>
+                </div>
             </form>
         </div>
     </main>
@@ -25,6 +29,10 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script>
     $(() => {
+        $.get('song/rankings', (data) => {
+          console.log(data);
+          $('#ratings').append();
+        })
         $.get('/song/pair', (data) => {
             console.log(data);
             $('#left').append();
