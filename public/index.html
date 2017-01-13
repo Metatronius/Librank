@@ -24,26 +24,6 @@
     </main>
 </body>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-<script>
-    $(() => {
-        $.get('song/rankings', (data) => {
-            console.log(data);
-            data = data.sort((a, b) => {
-              return b.rank - a.rank;
-            });
-            for (let i = 0; i < data.length; i++) {
-                $('#ratings').append(`<li>${data[i].trackName}</li>`);
-            }
-        })
-        $.get('/song/pair', (data) => {
-            console.log(data);
-            $('#left').append(`<input type="image" src="${data[0].albumArt}"/><p>${data[0].trackName}</p>`);
-            $('#right').append(`<input type="image" src="${data[1].albumArt}"/><p>${data[1].trackName}</p>`)
-        })
-    })
-    $('#right').click((e) => {
-      
-    })
-</script>
+<script src = "./index.js"></script>
 
 </html>
